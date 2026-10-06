@@ -1,0 +1,33 @@
+#ผลรวมสะสม
+#จงเขียนโปรแกรมเพื่อรับจำนวนเต็มใดๆ ที่มีค่าตั้งแต่ 1 ถึง 999 มาสร้างเป็น list (ใส่ 0 เพื่อหยุด)
+#จากนั้นให้สร้างและแสดงผล list ใหม่ โดยที่สมาชิกลำดับที่ i ของ list ใหม่จะเป็นผลรวมสะสมของสมาชิก i+1 ตัวแรกของ list เดิม
+#หมายเหตุให้แสดงข้อความโต้ตอบหรือข้อผิดพลาดที่อาจเกิดขึ้นในกรณีต่างๆดังนี้
+#“Number is out of range.” เมื่อคะแนนไม่อยู่ในช่วง 1 – 100
+#กำหนดให้มีฟังก์ชัน accum_sum(l) เพื่อสร้างและแสดงผลรวมสะสม list ใหม่จาก list l
+
+def accum_sum(l):
+    result = []
+    s = 0
+    for x in l:
+        s += x
+        result.append(s)
+    return result
+
+l = []
+while True:
+    n = int(input("Enter a number (0 to end): "))
+    
+    if n < 0 or (n > 100 and n != 0):
+        print("Number is out of range.")
+        continue
+
+    elif n == 0:
+        print("Original list:")
+        print(l)
+        print("Accumulative Sum:")
+        for x in accum_sum(l):
+            print(x)
+        break
+    
+    else:
+        l.append(n)

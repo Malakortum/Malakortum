@@ -1,0 +1,36 @@
+#การโยนโบว์ลิง 1 เกมประกอบด้วยการโยนทั้งหมด 10 frames แต่ละ frame ผู้เล่นจะโยนลูกโบว์ลิง 1 หรือ 2 ลูก เพื่อล้ม pin จำนวน 10 pins ที่ปลายราง ผลจากการโยนในแต่ละ frame มีดังนี้
+#การล้ม pin ทั้ง 10 ด้วยบอลลูกแรก เรียกว่า strike และไม่ต้องโยนบอลลูกที่สอง
+#การล้ม pin ทั้ง 10 ด้วยบอลทั้งสองลูก (รวมจำนวน pin จากการโยน 2 ครั้ง) เรียกว่า spare
+#การโยนบอลครบ 2 ลูกแล้วยังไม่สามารถล้ม pin ได้ครบ 10 pin เรียกว่า open frame
+#ทั้งนี้ ในการคิดคะแนนในแต่ละเฟรม ทั้ง strike และ spare คิดเป็น 10 แต้ม และ open frame ได้แต้มตามจำนวน pin ล้ม
+#เขียนโปรแกรมเพื่อรับแต้มจากการโยนโบว์ลิงทั้ง 10 frames และแสดงคะแนนที่ได้จากเกมนั้น
+
+rolls = []
+frame = 1
+while frame <= 10:
+    print(f"Frame # {frame}")
+    f = int(input("  Number of pins down: "))
+    rolls.append(f)
+    
+    if f == 10:
+        frame += 1
+    else:
+        remaining = 10 - f
+        s = int(input(f"  Number of pins down (0-{remaining}): "))
+        rolls.append(s)
+        frame += 1
+total_score = 0
+roll_index = 0
+
+for current_frame in range(10):
+    if rolls[roll_index] == 10:
+        total_score += 10 + rolls[roll_index + 1] + rolls[roll_index + 2]
+        roll_index += 1
+    elif rolls[roll_index] + rolls[roll_index + 1] == 10:
+        total_score += 10 + rolls[roll_index + 2]
+        roll_index += 2
+    else:
+        total_score += rolls[roll_index] + rolls[roll_index + 1]
+        roll_index += 2
+
+print(f"Total score is {total_score}")

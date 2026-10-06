@@ -1,0 +1,58 @@
+max_val = None
+min_val = None
+total = 0
+count = 0
+
+while True:
+    line = input()
+    if line == "":
+        break
+    
+    num = float(line)
+    
+    if max_val is None or num > max_val:
+        max_val = num
+    if min_val is None or num < min_val:
+        min_val = num
+    
+    total += num
+    count += 1
+
+avg = total / count
+
+print(f"{max_val:.2f} {min_val:.2f}")
+print(f"{total:.2f} {avg:.2f}")
+
+
+count = 0
+
+while True:
+    n = int(input())
+
+    if n < 0:
+        break
+
+    if n % 2 == 1:
+        count += 1
+
+print(count)
+
+n = int(input())
+total_score = 0
+count_above_40 = 0
+
+for i in range(n):
+    score = float(input()) 
+    total_score += score    
+
+  
+    if score > 40:
+        count_above_40 += 1
+
+
+if n > 0:
+    average = total_score / n
+    print(f"{average:.2f} {count_above_40}")
+else:
+
+    print(f"{0.00:.2f} 0")

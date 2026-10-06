@@ -1,0 +1,37 @@
+#ค่าความแปรปรวน
+#จงเขียนโปรแกรมเพื่อรับคะแนนสอบวิชาภาษาไทยของนักเรียน (คะแนนเต็ม 100 ไม่มีคะแนนติดลบ)
+#จนกระทั่งผู้ใช้ป้อนข้อมูล -1 จึงหยุด จากนั้นสร้าง list ของข้อมูล
+#แล้วแสดงผลคะแนนมากที่สุด (maximum score) คะแนนน้อยที่สุด (minimum score) คะแนนเฉลี่ย (average score)
+#และส่วนเบี่ยงเบนมาตรฐาน (standard deviation)
+#หมายเหตุ
+#ให้แสดงข้อความโต้ตอบหรือข้อผิดพลาดที่อาจเกิดขึ้นในกรณีต่างๆ ดังนี้
+#“Score is out of range.” เมื่อคะแนนไม่อยู่ในช่วง 0 – 100
+#กำหนดให้มีฟังก์ชัน find_sd(l) เพื่อส่งกลับส่วนเบี่ยงเบนมาตรฐานของ list l
+#แสดงผลคะแนนมากที่สุด คะแนนน้อยที่สุด คะแนนเฉลี่ย และส่วนเบี่ยงเบนมาตรฐาน เมื่อมีข้อมูลใน list เท่านั้น
+
+#คิดให้หน่อยว่าส่วนเบี่ยงเบนมาตราฐานเพิ่มอย่างไรดี
+
+def find_sd(l):
+    avg = sum(l) / len(l)
+    var = sum((x-avg)**2 for x in l) / len(l)
+    return var ** 0.5
+
+l = []
+while True:
+    n = float(input("Enter score: "))
+    if n == -1:
+        l.sort()
+        print(f"Maximum score is {maxi:.2f}.")
+        print(f"Minimum score is {mini:.2f}.")
+        print(f"Average score is {aver:.2f}.")
+        print(f"Standard deviation is {find_sd(1):.2f}.")
+        break
+    elif n < 0 or n > 100:
+        print("Score is out of range.")
+        continue
+        
+    else:
+        l.append(n)
+        maxi = max(l)
+        mini = min(l)
+        aver = sum(l) / len(l)

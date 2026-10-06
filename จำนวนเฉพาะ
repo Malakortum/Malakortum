@@ -1,0 +1,31 @@
+#Prime number checker
+#จำนวนเฉพาะ (prime number หรือเรียกสั้นๆว่า prime) เป็นจำนวนเต็มบวกซึ่งมีตัวหารเพียงสองตัวคือ 1 และตัวมันเอง
+#ตัวอย่างเช่น 7 เป็นจำนวนเฉพาะเนื่องจากเลขที่หารมันลงตัวมีเพียง 1 และ 7
+#ส่วน 10 ไม่ใช่จำนวนเฉพาะ เพราะมีตัวหารถึง 4 ตัว คือ 1, 2, 5 และ 10
+#จะเห็นว่าจากนิยามของจำนวนเฉพาะจะได้ว่า 1 ไม่ใช่จำนวนเฉพาะเนื่องจากมีตัวหารเพียงตัวเดียวคือ 1
+#ให้เขียนโปรแกรมเพื่อรับจำนวนเต็มบวก number และตรวจสอบว่า number เป็นจำนวนเฉพาะหรือไม่ 
+#โดยให้โปรแกรมสามารถรับจำนวนเต็มจนกว่าผู้ใช้จะป้อนค่า 0
+#หมายเหตุ ให้แสดงข้อความแจ้งข้อความโต้ตอบหรือข้อผิดพลาดที่อาจเกิดขึ้นในกรณีต่างๆ ดังนี้
+#"End of program, goodbye." เมื่อจำนวนเต็มที่รับเข้ามา มีค่าเท่ากับ 0 แล้วจบโปรแกรมทันที
+#"Invalid input, try again." เมื่อจำนวนเต็มที่รับเข้ามา มีค่าน้อยกว่าหรือเท่ากับ 1 แล้วให้ป้อนค่าใหม่
+
+
+while True:
+    number = int(input("Enter a number: "))
+    if number == 0:
+        print("End of program, goodbye.")
+        break
+    elif number <= 1:
+        print("Invalid input, try again.")
+        continue
+    else:
+        if number%2  == 0:
+                print(f"{number} is not a prime number.")
+        elif number%5  == 0:
+                print(f"{number} is not a prime number.")
+        elif number%7  == 0:
+                print(f"{number} is not a prime number.")
+        else:
+            if number % 1 == 0 and number % number == 0:
+                print(f"{number} is a prime number.")
+            

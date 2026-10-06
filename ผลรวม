@@ -1,0 +1,33 @@
+#จงเขียนโปรแกรมเพื่อรับจำนวนเต็ม num ที่กำหนดให้มีค่าตั้งแต่ 0 และน้อยกว่า 10,000 สร้างฟังก์ชันเพื่อส่งกลับตัวเลข ของแต่ละหลักดังนี้
+#digit(num) เพื่อคืนค่าตัวเลขในหลักหน่วยของจำนวนเต็ม num
+#tens(num) เพื่อคืนค่าตัวเลขในหลักสิบของจำนวนเต็ม num
+#hundreds(num) เพื่อคืนค่าตัวเลขในหลักร้อยของจำนวนเต็ม num
+#thousands(num) เพื่อคืนค่าตัวเลขในหลักพันของจำนวนเต็ม num
+#นอกจากนี้ให้สร้างฟังก์ชัน sum_digits(num) เพิ่มเติมเพื่อคืนค่าผลบวกของตัวเลขในแต่ละหลักของ num
+
+def digit(num):
+    return num%10
+def tens(num):
+    return (num//10)%10
+def hundreds(num):
+    return (num//100)%10
+def thousands(num):
+    return (num//1000)%10
+
+def sum_digits(num):
+    return digit(num) + tens(num) + hundreds(num) + thousands(num)
+
+while True:
+    num = int(input("Enter a number (0 to 9999): "))
+    if num<0:
+        print("Try Again")
+        break
+    elif num>9999:
+        print("Try Again")
+        break
+    else:
+        print("Digit place is", digit(num))
+        print("Tens place is", tens(num))        
+        print("Hundreds place is", hundreds(num))    
+        print("Thousands place is", thousands(num))   
+        print("Sum of all digits is", sum_digits(num))   

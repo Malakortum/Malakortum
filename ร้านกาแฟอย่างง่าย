@@ -1,0 +1,29 @@
+total = 0
+count = 0
+
+while True:
+    order = input("Enter the order: ").lower()
+    if order == "done":
+        print("Done Daring!")
+        break
+    elif order not in ["coffee","tea","cake"]:
+        print("Menu not found")
+    else:
+        count += 1
+        if order == "coffee":
+            total += 50
+        elif order == "cake":
+            total += 60
+        elif order == "tea":
+            total += 40
+print("The total is" , total)
+
+while True:
+    money = int(input("Enter the money: "))
+    if money - total >= 0:
+        change = money - total
+        print("The change is" , change)
+        print("Finish the order")
+        break
+    elif money - total < total:
+            print("Not enoght money")

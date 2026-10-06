@@ -1,0 +1,43 @@
+total = 0
+count = 0
+above_avg = 0
+error = False
+
+while True:
+    score = int(input("Enter score: "))
+
+    if score == -1:
+        break
+
+    if score < 0 or score > 100:
+        error = True
+        continue
+
+    total += score
+    count += 1
+
+    if count > 1 and score > (total / count):
+        above_avg += 1
+
+if count > 0:
+    average = total / count
+    print(f"{average:.2f} {above_avg}")
+elif error:
+    print("Invalid data")
+else:
+    print("No input")
+    
+    def digit(num):
+        return num % 10
+    
+    def tens(num):
+        return (num // 10) % 10
+    
+    def hundreds(num):
+        return (num // 100) % 10
+    
+    def thousands(num):
+        return (num // 1000) % 10
+    
+    def sum_digits(num):
+        return digit(num) + tens(num) + hundreds(num) + thousands(num)    

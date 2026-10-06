@@ -1,0 +1,19 @@
+#เขียนโปรแกรมเพื่อหาจำนวนวันที่จะต้องใช้ในการเก็บเงินให้ได้ตามเป้าหมาย
+#โดยโปรแกรมจะต้องถามจำนวนเงินที่เป็นเป้าหมายในการเก็บเงินในบรรทัดแรก 
+#จากนั้นแต่ละวันโปรแกรมจะให้ใส่จำนวนเงินที่จะเก็บเพิ่มและออกรายงานตามตัวอย่าง 
+#โดยมีข้อมูลดังนี้ (1) จำนวนวันที่ใช้ในการเก็บเงิน 
+#(2) ยอดเงินคงเหลือที่ต้องการเพื่อให้ถึงเป้าหมาย 
+#และเมื่อเก็บเงินจนถึงเป้าหมายแล้ว โปรแกรมจะรายงานว่าใช้เวลากี่วันในการเก็บเงิน
+
+day = 0
+total = 0
+g = float(input("Enter your goal amount: "))
+while total < g:
+    c = float(input("Enter money collected today: "))
+    day += 1
+    total += c
+    n = g - total
+    if total < g:
+        print(f"Total money collected up to day {day} is {c:.2f} You need {n:.2f} more.")
+print(f"Congratulations! You take {day} days to reach your goal.")
+    

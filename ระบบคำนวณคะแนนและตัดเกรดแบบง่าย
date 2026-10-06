@@ -1,0 +1,51 @@
+#ระบบคำนวณคะแนนและตัดเกรดแบบง่าย
+#มาอัปเลเวลกันขึ้นมาอีกนิดครับ ข้อนี้จะฝึกเรื่องการใช้เงื่อนไขแบบหลายชั้น (if-elif-else) และการคำนวณทางคณิตศาสตร์พื้นฐานครับ
+#คำอธิบายโจทย์:
+#จงเขียนฟังก์ชันชื่อ calculate_grade(score) ที่รับคะแนนดิบ (ตัวเลขทศนิยมหรือจำนวนเต็มก็ได้) โดยมีเกณฑ์การตัดเกรดดังนี้:
+#คะแนน 80 ขึ้นไป ได้เกรด "A"
+#คะแนน 70 ถึง 79.99 ได้เกรด "B"
+#คะแนน 60 ถึง 69.99 ได้เกรด "C"
+#คะแนน 50 ถึง 59.99 ได้เกรด "D"
+#คะแนน น้อยกว่า 50 ได้เกรด "F"
+#เงื่อนไขเพิ่มเติม:
+#หากคะแนนที่ป้อนเข้ามา ไม่อยู่ในช่วง 0 ถึง 100 (เช่น ติดลบ หรือเกิน 100) ให้ฟังก์ชันส่งคืนค่ากลับไปว่า "Score error"
+#ตัวอย่างผลลัพธ์ที่คาดหวัง:
+#calculate_grade(85.5) ➔ "A"
+#calculate_grade(62) ➔ "C"
+#calculate_grade(45) ➔ "F"
+#calculate_grade(105) ➔ "Score error"
+#calculate_grade(-10) ➔ "Score error"
+
+
+A = 0
+B = 0
+C = 0
+D = 0
+F = 0
+while True:
+    s = int(input("Enter: "))
+    if s == 0000:
+        print("Total A: " +A)
+        print("Total B: " +B)
+        print("Total C: " +C)
+        print("Total D: " +D)
+        print("Total F: " +F)
+        break
+
+    else:
+        def calculate_grade(s):
+            if s >= 80:
+                A += 1
+                return A
+            elif s >= 70:
+                B += 1
+                return B
+            elif s >= 60:
+                C += 1
+                return C
+            elif s >= 50:
+                D += 1
+                return D
+            else:
+                F += 1
+                return F
